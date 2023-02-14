@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CACULATOR</title>
+</head>
+
+<body>
+    <div class="icons">
+        <img class="firimg" src="https://cdn.pixabay.com/photo/2017/01/31/17/49/button-2025915__340.png" alt="">
+        <img class="secimg" src="https://cdn.pixabay.com/photo/2014/03/25/16/54/button-297546__340.png"
+            style="opacity: 0;" alt="">
+    </div>
+
+    <div class="container ">
+
+        <div class="inp">
+            <input class="input" type="text">
+        </div>
+        <div class="row">
+            <button class="button"
+                style="background-color: red;box-shadow:1px 1px 20px black,-1px -1px 0px black;">C</button>
+            <button class="button"
+                style="background-color:orange ;box-shadow:1px 1px 20px black,-1px -1px 0px black;padding: 8px 18px ;">%</button>
+            <button class="button"
+                style="background-color:orange ;box-shadow:1px 1px 20px black,-1px -1px 0px black;padding: 10px 18px ;">M+</button>
+            <button class="button" id="bkspc"
+                style="padding: 0px 0px ;background-color:white ;box-shadow:1px 1px 20px black,-1px -1px 0px black;"><img
+                    style="width:60px;border-radius: 100%;"
+                    src="https://cdn.pixabay.com/photo/2021/11/30/00/42/backspace-button-6834137__340.png"
+                    alt=""></button>
+        </div>
+        <div class="row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button" style="background-color:orangered;">*</button>
+        </div>
+
+        <div class="row">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button" style="background-color:orangered;">/</button>
+        </div>
+
+        <div class="row">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button" style="background-color:orangered;">+</button>
+        </div>
+
+        <div class="row">
+            <button class="button">0</button>
+            <button class="button">.</button>
+            <button class="button" onclick="err()" style="width:30%;">=</button>
+            <button class="button" style="background-color:orangered;">-</button>
+        </div>
+    </div>
+    <dialog>
+        <h1>
+            Enter a valid calculation!
+        </h1>
+        <button id="butt">OK</button>
+    </dialog>
+
+</body>
+
+</html>
+
+<style>
+    dialog::backdrop {
+        background: black;
+
+    }
+
+    dialog {
+        background: black;
+        color: green;
+        border: 2px solid red;
+        font-family: monospace;
+        box-shadow: -2px 2px 5px 1px green;
+        border-radius: 20px;
+    }
+
+    img {
+        cursor: pointer;
+        width: 30px;
+        border-radius: 100px;
+    }
+
+    .icons {
+        display: flex;
+        margin-left: 90%;
+        justify-content: space-between;
+        /* background-color: cyan; */
+
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(270deg, #00BFFF, #01BFFF, #66CDAA);
+        /* background-image: url(https://mcdn.wallpapersafari.com/medium/72/41/yJws5z.jpg); */
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+
+    .container content {
+        position: relative;
+    }
+
+    .container {
+
+        overflow: hidden;
+        width: 30%;
+        margin-top: 5%;
+        height: 90vh;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        flex-direction: column;
+        /* box-shadow: 3px 3px 20px 1px blue, 3px -3px 50px 1px black, -3px 3px 50px 1px black; */
+        position: relative;
+        z-index: 10;
+        margin-top: 0%;
+    }
+
+
+    .container:hover {
+        transform: translateY(-20px);
+        transition: 2s all ease;
+    }
+
+    .container::before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 140%;
+        background: linear-gradient(red, blue);
+        z-index: -9;
+        border-radius: 10px;
+        animation: animate 3s linear infinite;
+    }
+
+    .container::after {
+        content: '';
+        position: absolute;
+        inset: 5px;
+        border-radius: 10px;
+        background: black;
+        z-index: -2;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: rotate(0deg);
+
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+
+    }
+
+    .row {
+        width: 100%;
+        margin: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+    }
+
+    button {
+
+        padding: 10px 25px;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 1px 1px 15px black, 1px -1px 0px black;
+        font-size: 1.6rem;
+        border: 3px solid;
+        font-weight: bold;
+        font-style: italic;
+        position: relative;
+        width: 20%;
+    }
+
+
+
+    .input {
+        margin-top: 10%;
+        /* margin-bottom: 10%; */
+        width: 80%;
+        height: 5vh;
+        -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
+        position: relative;
+    }
+
+    input {
+        font-size: 2rem;
+        border-radius: 10px;
+        padding: 8px 20px;
+        font-weight: bolder;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        transition: 3s all ease;
+        border: 3px solid;
+        font-style: italic;
+        box-shadow: 2px 2px 20px black, 2px -2px 100px blue;
+
+    }
+
+    @media screen and (min-width:150px) and (max-width:900px) {
+        .input {
+            width: 85%;
+            margin-left: 0px;
+        }
+
+        .container {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 1%;
+        }
+    }
+</style>
+
+
+
+
+
+<script>
+    let string = "";
+    let buttons = document.querySelectorAll('.button');
+    Array.from(buttons).forEach((button) => {
+        button.addEventListener('click', (e) => {
+            if (e.target.innerHTML == '=') {
+                string = eval(string)
+                document.querySelector('input').value = string
+            }
+            else if (e.target.innerHTML == 'C') {
+                string = "";
+                document.querySelector('input').value = string
+            }
+            else {
+                console.log(e.target);
+                string = string + e.target.innerHTML;
+                document.querySelector('input').value = string
+            }
+        })
+    })
+
+
+    let dialog = document.querySelector('dialog')
+
+    let err = () => {
+        try { string = eval(string) }
+        catch (err) {
+            dialog.showModal()
+        }
+        let butt = document.querySelector('#butt')
+        butt.addEventListener('click', () => {
+            dialog.close()
+        })
+    }
+
+
+
+    let bkspc = document.getElementById('bkspc')
+    bkspc.addEventListener('click', () => {
+        let Input = document.querySelector('.input')
+        Input.value = Input.value.slice(0, -1)
+    })
+
+
+
+
+    let first = document.querySelector('.firimg')
+    let second = document.querySelector('.secimg')
+    let icons = document.querySelector('.icons')
+    first.addEventListener('click', () => {
+        first.style.opacity = 0
+        second.style.opacity = 1
+        document.body.style.background = "black"
+        document.body.style.backgroundSize = 'cover'
+        document.body.style.backgroundPosition = 'fixed'
+    })
+    second.addEventListener('click', () => {
+        second.style.opacity = 0
+        first.style.opacity = 1
+        document.body.style.background = 'white'
+        document.body.style.backgroundSize = 'cover'
+        document.body.style.backgroundPosition = 'fixed'
+    })
+// function first(){
+//     document.body.style.background = 'url(https://mcdn.wallpapersafari.com/medium/17/9/UsEzm7.jpg)'
+
+// }
+
+</script>
+<script src="calculator.js"></script>
