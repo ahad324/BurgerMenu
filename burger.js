@@ -60,7 +60,7 @@ Array.from(document.getElementsByClassName('button')).forEach((element) => {
        <span id="num"> 01 </span> 
        <button id="minus" style="cursor: pointer; width: 15px;border-radius: 100px;font-weight: bolder;text-align: center;background:black;color:white;font-size:1.2rem;">-</button></td>
        <td>${price}</td>
-       <td><button class="deletebtn">Delete</button></td>
+       <td><i class="fa-solid deletebtn fa-xmark" style="color:red;"></i></td>
        </tr>
        
        `
@@ -86,7 +86,7 @@ function plus(e) {
 tableEl.addEventListener('click', plus);
 
 function minus(e) {
- 
+
     let a = 1;
     if (a > 1) {
         a--;
@@ -103,7 +103,7 @@ function ondeleterow(e) {
         return;
     }
     const btn = e.target;
-    
+
     btn.closest('tr').remove();
 }
 
